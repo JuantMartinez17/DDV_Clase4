@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4or46hsi68mp"]
+
+[ext_resource type="Script" path="res://Obstaculo/Scripts/obstaculo.gd" id="1_3n16r"]
+[ext_resource type="Script" path="res://Obstaculo/Scripts/static_body_2d.gd" id="2_k2uai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tx7a"]
+size = Vector2(48, 45.5)
+
+[sub_resource type="Gradient" id="Gradient_fjiia"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5mog0"]
+gradient = SubResource("Gradient_fjiia")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dompt"]
+size = Vector2(47.5, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nec4y"]
+size = Vector2(48, 134.233)
+
+[node name="Obstaculo" type="Node2D"]
+script = ExtResource("1_3n16r")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.008
+can_sleep = false
+contact_monitor = true
+max_contacts_reported = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_6tx7a")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+self_modulate = Color(0.463334, 0.598574, 0.471128, 1)
+scale = Vector2(0.1875, 46.25)
+texture = SubResource("GradientTexture1D_5mog0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 25)
+script = ExtResource("2_k2uai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_dompt")
+
+[node name="Trigger" type="Area2D" parent="."]
+position = Vector2(0, 27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(0, 67.1167)
+shape = SubResource("RectangleShape2D_nec4y")
+
+[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
+[connection signal="body_entered" from="Trigger" to="StaticBody2D" method="_on_trigger_body_entered"]

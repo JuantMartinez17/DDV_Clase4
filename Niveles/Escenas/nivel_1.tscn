@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5h5f0ui30jxl"]
+
+[ext_resource type="PackedScene" uid="uid://cbq2vds83rph3" path="res://Plataforma/Escenas/plataforma.tscn" id="1_ghn6f"]
+[ext_resource type="PackedScene" uid="uid://cgvkogjowssca" path="res://Player/Escenas/player.tscn" id="2_ran7l"]
+[ext_resource type="PackedScene" uid="uid://c4or46hsi68mp" path="res://Obstaculo/Escenas/obstaculo.tscn" id="3_dir33"]
+[ext_resource type="PackedScene" uid="uid://fou0j1evinmf" path="res://PortalA/Escenas/portal_a.tscn" id="4_d5o13"]
+[ext_resource type="PackedScene" uid="uid://d20tenbx2p8or" path="res://PortalB/Escenas/portal_b.tscn" id="5_8atys"]
+
+[node name="Nivel1" type="Node2D"]
+
+[node name="Plataforma" parent="." instance=ExtResource("1_ghn6f")]
+position = Vector2(-30, -6)
+
+[node name="Plataforma2" parent="." instance=ExtResource("1_ghn6f")]
+position = Vector2(413, -52)
+
+[node name="Player" parent="." instance=ExtResource("2_ran7l")]
+position = Vector2(89, -103)
+
+[node name="Obstaculo" parent="." instance=ExtResource("3_dir33")]
+position = Vector2(416, -335)
+position_base = Vector2(0, 100)
+
+[node name="Plataforma3" parent="." instance=ExtResource("1_ghn6f")]
+position = Vector2(1082, -125)
+
+[node name="PortalA" parent="." instance=ExtResource("4_d5o13")]
+position = Vector2(-191, -136)
+
+[node name="PortalB" parent="." instance=ExtResource("5_8atys")]
+position = Vector2(953, -259)
