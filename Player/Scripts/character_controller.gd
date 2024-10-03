@@ -75,11 +75,11 @@ func update_animation(input_vector: Vector2):
 			else:
 				animation_state.travel("running")  # Cambia a la animación de correr constante
 		else:
-			if is_running:
-				animation_state.travel("run_end")  # Ejecuta la animación de detenerse
-				is_running = false  # Marcamos que ha dejado de correr
-			else:
-				animation_state.travel("idle")  # Cambia a la animación de estar parado
+			#if is_running:
+				#animation_state.travel("run_end")  # Ejecuta la animación de detenerse
+				#is_running = false  # Marcamos que ha dejado de correr
+			#else:
+			animation_state.travel("idle")  # Cambia a la animación de estar parado
 
 # Mantiene la direccion (sentido: derecha o izquierda) actual del personaje o lo invierte segun
 # la entrada.
