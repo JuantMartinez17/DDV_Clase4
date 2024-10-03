@@ -16,10 +16,16 @@ curve = SubResource("Curve_0kpuq")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kylkg"]
 particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 20.0
 spread = 180.0
 initial_velocity_min = 30.0
 initial_velocity_max = 50.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
 gravity = Vector3(0, 30, 0)
+radial_accel_min = 200.0
+radial_accel_max = 200.0
 damping_min = 30.0
 damping_max = 30.0
 scale_min = 0.3
@@ -59,6 +65,7 @@ position = Vector2(953, -259)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(121, -271)
+emitting = false
 amount = 300
 process_material = SubResource("ParticleProcessMaterial_kylkg")
 texture = SubResource("GradientTexture1D_guro2")
